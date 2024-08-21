@@ -18,11 +18,17 @@ This Telegram bot integrates with Google Calendar to help users manage their eve
 ## Setup
 
 1. Clone this repository
-2. Install the required dependencies: `pip install python-dotenv python-telegram-bot google-auth-oauthlib google-auth-httplib2 google-api-python-client`
+2. Install the required dependencies: 
+```
+pip install python-dotenv python-telegram-bot google-auth-oauthlib google-auth-httplib2 google-api-python-client
+```
 3. Set up a Telegram bot and obtain the bot token from BotFather
 4. Create a Google Cloud project and enable the Google Calendar API
 5. Download the `credentials.json` file for your Google Cloud project
-6. Create a `.env` file in the project root and add your Telegram bot token: `BOT_TOKEN=your_telegram_bot_token_here`
+6. Create a `.env` file in the project root and add your Telegram bot token: 
+```
+BOT_TOKEN=your_telegram_bot_token_here
+```
 7. Run the script: `python bot.py`
 
 
