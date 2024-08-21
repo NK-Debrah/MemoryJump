@@ -1,62 +1,40 @@
-Google Calendar Telegram Bot
-This is a Python-based Telegram bot that integrates with Google Calendar to help users manage their events and set reminders. The bot can retrieve upcoming events from your Google Calendar and send reminders based on your specified time preferences.
+# Google Calendar Telegram Bot
 
-Features
-Event Reminders: Set a reminder for a specific number of minutes before an event.
-Upcoming Events: Get details of your next upcoming event.
-Event Notifications: The bot checks periodically and sends notifications for upcoming events based on your reminders.
-Prerequisites
-Before you begin, ensure you have the following installed:
+This Telegram bot integrates with Google Calendar to help users manage their events and set reminders. It allows users to check their upcoming events and set custom reminders through a simple chat interface.
 
-Python 3.6+
-Pip
-A Telegram account and a bot created via BotFather
-Google Calendar API enabled and OAuth 2.0 credentials downloaded from the Google Cloud Console
-Setup
-Clone the repository:
+## Features
 
-bash
-Copy code
-git clone https://github.com/yourusername/google-calendar-telegram-bot.git
-cd google-calendar-telegram-bot
-Install dependencies:
+- View the next upcoming event from your Google Calendar
+- Set custom reminders for events
+- Receive notifications before events based on your preferences
 
-bash
-Copy code
-pip install -r requirements.txt
-Configure environment variables:
+## Commands
 
-Create a .env file in the root directory and add your Telegram bot token:
+- `/start` or `/hello`: Greet the bot and start the interaction
+- `/help`: Display help information and available commands
+- `/set_reminder <minutes>`: Set a reminder for a specified number of minutes before events
+- `/upnext`: Show your next upcoming event
 
-env
-Copy code
-BOT_TOKEN=your_telegram_bot_token
-Google Calendar API Setup:
+## Setup
 
-Follow the instructions on Google Calendar API Python Quickstart to set up the API.
-Download the credentials.json file and place it in the root directory of your project.
-Run the bot:
+1. Clone this repository
+2. Install the required dependencies: `pip install python-dotenv python-telegram-bot google-auth-oauthlib google-auth-httplib2 google-api-python-client`
+3. Set up a Telegram bot and obtain the bot token from BotFather
+4. Create a Google Cloud project and enable the Google Calendar API
+5. Download the `credentials.json` file for your Google Cloud project
+6. Create a `.env` file in the project root and add your Telegram bot token: `BOT_TOKEN=your_telegram_bot_token_here`
+7. Run the script: `python bot.py`
 
-bash
-Copy code
-python bot.py
-The bot will start polling for commands and events.
 
-Available Commands
-/start or /hello - Greet the bot and start the interaction.
-/help - Get a list of available commands and usage instructions.
-/set_reminder <minutes> - Set a reminder for a specified number of minutes before an event.
-/upnext - Retrieve and display details of your next upcoming event.
-How It Works
-The bot uses the Google Calendar API to access your events.
-You can set reminders to notify you a certain amount of time before your events.
-The bot runs a background thread to check for upcoming events and send notifications if a reminder is set.
-Future Enhancements
-Create Events: Add functionality to create new events on your Google Calendar directly from the bot.
-Event Deletion: Enable event deletion or modification from within the bot.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Authentication
 
-Contributions & Issues
-Feel free to contribute to this project by submitting a pull request or opening an issue for any bugs or feature requests.
+On first run, you'll need to authenticate with your Google account. The script will open a browser window for you to complete the OAuth2 flow. After successful authentication, a `token.json` file will be created to store your credentials.
+
+## Note
+
+This bot uses the `google-auth-oauthlib` library, which requires a local server for the OAuth2 flow. The server runs on port 8080 by default.
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests with any improvements or bug fixes.
 
